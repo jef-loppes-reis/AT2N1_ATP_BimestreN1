@@ -105,16 +105,16 @@ public class main {
             " ******************************************\n");
 
         System.out.println("Conta dos clientes:");
-        System.out.println("- " + cliente1.getNome() + ": " + cliente1.getContaCliente().getSaldo());
-        System.out.println("- " + cliente2.getNome() + ": " + cliente2.getContaCliente().getSaldo());
-        System.out.println("- " + cliente3.getNome() + ": " + cliente3.getContaCliente().getSaldo());
-        System.out.println("- " + cliente4.getNome() + ": " + cliente4.getContaCliente().getSaldo());
-        System.out.println("- " + cliente5.getNome() + ": " + cliente5.getContaCliente().getSaldo());
+        System.out.println("-> " + cliente1.getNome() + ": " + cliente1.getContaCliente().getSaldo());
+        System.out.println("-> " + cliente2.getNome() + ": " + cliente2.getContaCliente().getSaldo());
+        System.out.println("-> " + cliente3.getNome() + ": " + cliente3.getContaCliente().getSaldo());
+        System.out.println("-> " + cliente4.getNome() + ": " + cliente4.getContaCliente().getSaldo());
+        System.out.println("-> " + cliente5.getNome() + ": " + cliente5.getContaCliente().getSaldo());
         System.out.println();
 
         System.out.println("Conta das Lojas:");
-        System.out.println("- " + loja1.getNome() + ": R$" + loja1.getContaLoja().getSaldo());
-        System.out.println("- " + loja2.getNome() + ": R$" + loja2.getContaLoja().getSaldo());
+        System.out.println("-> " + loja1.getNome() + ": R$" + loja1.getContaLoja().getSaldo());
+        System.out.println("-> " + loja2.getNome() + ": R$" + loja2.getContaLoja().getSaldo());
 
         System.out.println("\nConta dos Funcionários que trabalham na loja " + loja1);
 

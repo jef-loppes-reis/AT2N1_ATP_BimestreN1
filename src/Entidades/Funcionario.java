@@ -16,8 +16,8 @@ public class Funcionario extends Thread {
 
         this.nomeFuncionario = nomeFuncionario;
         this.loja = loja;
-        this.contaSalario = new Conta(nomeFuncionario + " - Salário", 0);
-        this.contaInvestimento = new Conta(nomeFuncionario + " - Investimento", 0);
+        this.contaSalario = new Conta(nomeFuncionario + " -> Salário", 0);
+        this.contaInvestimento = new Conta(nomeFuncionario + " -> Investimento", 0);
         this.banco = banco;
 
     }
@@ -39,11 +39,15 @@ public class Funcionario extends Thread {
             synchronized (loja) { 
                 if (loja.getContaLoja().getSaldo() >= salario) {
                     banco.transferir(loja.getContaLoja(), getContaSalario(), salario);
-                    System.out.println("A loja " + loja.getNome() + " pagou o(a) funcionario(a) " + nomeFuncionario
-                        + "\nSaldo da conta de(a) " + nomeFuncionario + " antes do ivestimento era de " + getContaSalario().getSaldo());
+                    System.out.println("A loja " + loja.getNome()
+                        + " pagou o(a) funcionario(a) " + nomeFuncionario
+                        + "\nSaldo da conta de(a) " + nomeFuncionario
+                        + " antes do ivestimento era de " + getContaSalario().getSaldo());
                 } else {
-                    System.out.println("\nA loja" + loja.getNome() + " não teve o saldo suficiente para pagar o(a) " + getNome()
-                        + "\nO saldo atual da loja " + loja.getNome() + " e de R$ " + loja.getContaLoja().getSaldo() + "\n");
+                    System.out.println("\nA loja" + loja.getNome()
+                        + " não teve o saldo suficiente para pagar o(a) " + getNome()
+                        + "\nO saldo atual da loja " + loja.getNome()
+                        + " e de R$ " + loja.getContaLoja().getSaldo() + "\n");
                 }
             }
         } finally {
@@ -59,10 +63,11 @@ public class Funcionario extends Thread {
                 System.out.println("O(a) funcionario(a) " + nomeFuncionario + " nao conseguiu investir.");
             } else {
                 banco.transferir(contaSalario, contaInvestimento, valorInvestimento);
-                System.out.println("\nO(a) funcionario(a) " + nomeFuncionario + " investiu R$ " + valorInvestimento
-                        + "\nSaldo atualizado do funcionario(a) " + nomeFuncionario
-                        + "\n    -> Conta de investimento, valor de R$ " + getContaInvestimento().getSaldo()
-                        + "\n    -> Conta do salario, valor de R$ " + getContaSalario().getSaldo());
+                System.out.println("\nO(a) funcionario(a) "
+                    + nomeFuncionario + " investiu R$ " + valorInvestimento
+                    + "\nSaldo atualizado do funcionario(a) " + nomeFuncionario
+                    + "\n    -> Conta de investimento, valor de R$ " + getContaInvestimento().getSaldo()
+                    + "\n    -> Conta do salario, valor de R$ " + getContaSalario().getSaldo());
             }
         } finally {
             lock.unlock();
